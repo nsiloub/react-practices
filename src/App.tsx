@@ -1,35 +1,40 @@
 import { useState } from 'react'
 import './App.css'
-let nextId = 0;
-function App(): React.JSX.Element {
-  const [name, setName] = useState('');
-  const [artists, setArtists] = useState<{
-    id: number,
-    name: string
-  }[]>([{id: 1, name: "random"}]);
+
+// TODO: DELETING FROM AN ARRAY
+
+const initialArtists = [
+  {id: 0, name: 'Marta Colvin Andrade'},
+  {id: 1, name: 'Lamidi Olonade Fakeye'},
+  {id: 2, name: 'Louise Nevelson'}
+]
+
+function List(): React.JSX.Element {
+  const [artists, setArtists] = useState(
+    initialArtists
+  );
 
 
   return (
     <>
-      <h1>Inspiring sculptors:</h1>
-      <input 
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-      />
-      <button
-        onClick={() => {
-          // setArtists(artists.concat({id: nextId++, name: name}))
-          // setArtists([{id: nextId++, name: name}, ...artists])
-          setArtists([{id: nextId++, name: name}].concat(artists))
-        }}
-      >Add</button>
+      <h1>Inspiring Sculptors: </h1>
       <ul>
-        {artists.map(
-          (artist) => <li key={artist.id}> {artist.name} </li>
+        {artists.map((artist) => (
+            <li key={artist.id}>
+              {artist.name}{" "}
+              <button onClick={() =>{setArtists(
+                artists.filter(a => 
+                  a.id !== artist.id
+                )
+              )}}>
+                Delete
+              </button>
+            </li>
+          )
         )}
       </ul>
     </>
-  )
-}
+  )  
+};
 
-export default App
+export default List
