@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Challenge 3 of 3: Refactor style Imperative to Declarative</title>
+    <style>
+        * {box-sizing: border-box;}
+        body {font-family: sans-serif; margin: 20px; padding: 0; background-color: #010101; color: #efefef;}
+    </style>
+</head>
+<body>
+    <form id="form">
+        <label id="fnameLabel">
+            First Name: 
+            <b id="fname"></b>
+            <input
+                type="text"
+                class="nameInputs"
+                name="firstname"
+            >
+        </label>
+        <br><br>
+        <label id="lnameLabel">
+            Last Name:
+            <b id="lname"></b>
+            <input 
+                name="lastname"
+                class="nameInputs"
+                type="text"
+            >
+        </label>
+        <br><br>
+        <button id="submitBtn" type="submit"></button>
+        <p><i>Hello, </i> <span id="nameText"></span> !
+        </p>
+    </form>
+
+    <script src="./profileEditor.js"></script>
+</body>
+</html>
