@@ -14,7 +14,4 @@ ul, ol, li {
 
 
 /* NEW */
-input { margin: 5px;}
-li {border-radius: 5px;}
-label {width: 100%; padding: 5%; display: inline-block;}
-.highlighted {background: #d2eaff; color: #010101;}
+
