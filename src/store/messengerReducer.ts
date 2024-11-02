@@ -1,5 +1,3 @@
-import { act } from "react";
-import { Contact } from "../assets/data";
 
 export type State = {
     selectedId: number,
@@ -41,7 +39,7 @@ export function messengerReducer(state: State, action: Action): State {
             return nextState;
         }
         default: {
-            throw Error("Unknown action: " + action.type);
+            throw Error("Unknown action: " + action);
         }
     }
 };

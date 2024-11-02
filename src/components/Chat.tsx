@@ -1,4 +1,3 @@
-import { useState } from "react"
 import { Contact } from "../assets/data"
 
 export default function Chat({message, contact, onEditMessage} : {
