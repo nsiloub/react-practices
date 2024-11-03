@@ -1,45 +1,41 @@
+import { Contact } from "../assets/data";
 
 export type State = {
-    selectedId: number,
+    selectedContactId: number,
     message: string
-}
+};
+
 export const initialState: State = {
-    selectedId: 0,
+    selectedContactId: 0,
     message: "Hello"
 };
 
 type SELECTED_CONTACT_ACTION = {
     type: "SELECTED_CONTACT",
-    payload: State["selectedId"]
+    payload: Contact["id"]
 };
+
 type EDITED_MESSAGE_ACTION = {
-    type: "EDDITED_MESSAGE",
-    payload: State["message"]
+    type: "EDITED_MESSAGE",
+    payload: string,
 }
-
 type Action = SELECTED_CONTACT_ACTION | EDITED_MESSAGE_ACTION;
-
-export function messengerReducer(state: State, action: Action): State {
+export function messengerReducer(state: State, action: Action): typeof state {
     switch(action.type) {
         case "SELECTED_CONTACT": {
-            const nextId: number = action.payload;
-            const nextState: State = {
+            return {
                 ...state,
-                selectedId: nextId
+                selectedContactId: action.payload
             };
-            return nextState;
         }
-        case "EDDITED_MESSAGE": {
-            const nextMsg: string = action.payload;
-            const nextState: State = {
+        case "EDITED_MESSAGE": {
+            return {
                 ...state,
-                message: nextMsg
+                message: action.payload
             }
-
-            return nextState;
         }
         default: {
-            throw Error("Unknown action: " + action);
+            throw Error("Unknown action type. the Action type doesn't exist in " + action)
         }
     }
-};
+}
