@@ -4,7 +4,7 @@ import { useRef, useState } from "react"
 export default function StopWatch() {
     const [startTime, setStartTime] = useState<number | null>(null);
     const [now, setNow] = useState<number | null>(null);
-    const intervalRef = useRef< numer | null >(null); // like the timer: will not be used for rendering, so we'll use useRef instead of useState
+    const intervalRef = useRef< number | undefined >(undefined); // like the timer: will not be used for rendering, so we'll use useRef instead of useState
 
 
     function handleStart() {
