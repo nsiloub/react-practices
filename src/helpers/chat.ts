@@ -12,7 +12,7 @@ export default function createConnection(serverUrl: string, roomId: string) {
         }
       }, 100);
     },
-    on(event: "connected" | any , callback: () => void) {
+    on(event: "connected" | unknown , callback: () => void) {
       if (connectedCallback) {
         throw Error('Cannot add the handler twice.');
       }

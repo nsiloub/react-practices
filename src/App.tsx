@@ -1,6 +1,8 @@
-// [Challenging] Extracting non-reactive logic out of Effects [mixing reactive value with non reactive values without useEffectEvent] --- separating-events-from-effects --- separating-events-from-effects
+// [Solution] Extracting non-reactive logic out of Effects [mixing reactive value with non reactive values using useEffectEvent experimental hook] --- separating-events-from-effects --- separating-events-from-effects
 
+/// <reference types="react/experimental" />
 import { useEffect, useState } from "react"
+import { experimental_useEffectEvent as useEffectEvent } from "react"
 import createConnection from "./helpers/chat";
 import { showNotification, Theme } from "./helpers/notification";
 
@@ -43,24 +45,26 @@ export default function App() {
     )
 };
 
-function ChatRoom( {roomId, theme} : {
-    roomId: string,
-    theme: Theme
+function ChatRoom({ roomId, theme }: {
+    roomId: string, theme: Theme
 }) {
-    
-    // effect for connecting whenever the roomId changes
-    // But the problem is, the "theme" also(unvolontarly) triggers connection
-    // "theme" is a reactive value (just like roomId) but at the same time an Event value
-    // so this code is not quite right
+    // "theme" is an Effect-Event: an event that behaves like an effect
+    // so use the "useEffectEvent" experimental hook
+    const onConnected = useEffectEvent(() => {
+        showNotification("connected!", theme)
+    });
+
     useEffect(() => {
         const connection = createConnection(serverUrl, roomId);
         connection.on("connected", () => {
-            showNotification("connected!", theme)
+            onConnected();
         });
         connection.connect();
 
         return () => connection.disconnect();
-    }, [roomId, theme]);
 
-    return <h1> Welcome to the "{roomId}" room! </h1> 
+    }, [roomId]);
+
+
+    return <h1>Welcome to the {roomId} romm!</h1>
 }
