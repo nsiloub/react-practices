@@ -1,4 +1,4 @@
-// Challenge 5 of 5: Populate a chain of select boxes --- lifecycle-of-reactive-effects
+// Challenge 5 of 5: Populate a chain of select boxes [two useState, on depends on the other] --- lifecycle-of-reactive-effects
 
 import { useEffect, useState } from "react";
 import "./App.css";
