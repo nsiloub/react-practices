@@ -1,6 +1,4 @@
-// [Challenging] Extracting non-reactive logic out of Effects [mixing reactive value with non reactive values] --- /separating-events-from-effects --- separating-events-from-effects
-
-// git add . && git commit -m "CLEARING: IGNORE IT" && git push
+// [Challenging] Extracting non-reactive logic out of Effects [mixing reactive value with non reactive values without useEffectEvent] --- separating-events-from-effects --- separating-events-from-effects
 
 import { useEffect, useState } from "react"
 import createConnection from "./helpers/chat";
