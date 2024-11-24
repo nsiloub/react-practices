@@ -4,10 +4,10 @@ so don't do this
 ```tsx
   // Effect for incrementing the counter 
   useEffect(() => {
-    const delay = 1000;
+    const interval = 1000;
     const timerId = setInterval(() => {
       setCount(c => c + increment) // "increment" is not the latest value from the state
-    }, delay);
+    }, interval);
 
     return () => {
       clearInterval(timerId);
@@ -24,10 +24,10 @@ in stead, Separate the ***non-reactive Effect*** into a dedicated ```useEffectEv
 
   // Effect for using the non-reactive Effect "increment"
   useEffect(() => {
-    const delay = 1000;
+    const interval = 1000;
     const timerId = setInterval(() => {
       onIncrement()
-    }, delay);
+    }, interval);
 
     return () => {
       clearInterval(timerId);
