@@ -10,8 +10,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "react": "^0.0.0-experimental-91061073-20241121",
-    "react-dom": "^0.0.0-experimental-91061073-20241121"
+    "@types/toastify-js": "^1.12.3",
+    "react": "^0.0.0-experimental-7670501b-20241124",
+    "react-dom": "^0.0.0-experimental-7670501b-20241124",
+    "toastify-js": "^1.12.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.13.0",
@@ -19,7 +21,7 @@
     "@types/react-dom": "^18.3.1",
     "@vitejs/plugin-react": "^4.3.3",
     "eslint": "^9.13.0",
-    "eslint-plugin-react-hooks": "^0.0.0-experimental-91061073-20241121",
+    "eslint-plugin-react-hooks": "^0.0.0-experimental-7670501b-20241124",
     "eslint-plugin-react-refresh": "^0.4.14",
     "globals": "^15.11.0",
     "typescript": "~5.6.2",
